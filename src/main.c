@@ -7,7 +7,7 @@
 int main() {
   //  carte* c = carte_create(7, 5);
                                                                                                                   
-  FILE* fp = fopen("carte.txt", "r");                                                                                                
+  FILE* fp = fopen("../sauvegarde/carte.txt", "r");                                                                                                
   if ( (fp = fopen("carte.txt", "r"))== NULL){                                                                     
     printf("Erreur d'ouverture \n");                                                                             
     return 1;                                                                                                     
