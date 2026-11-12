@@ -1,0 +1,52 @@
+#ifndef CARTE_H
+#define CARTE_H
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/** matrice est structure representant une matrice 
+    ayant n ligne et m colonness
+    les éléments de la matrice se trouvent dans le tableau bidimensionel elt
+ **/
+
+typedef struct matrice_{
+    int n;
+    int m;
+    int **elt;
+]matrice;
+
+/** matrice_create(n, m) retourne une matrice ayant n lignes et m colonnes
+    la mémoire du tableau elt est allouée en deux étapes :
+    1. allocation de l'espace mémoire pour n lignes
+    2. pour chacune des lignes, allocation de l'espace mémoire pour m cases
+ **/
+
+matrice* matrice_create(int, int);
+
+/** matrice_free(v) libère tout l'espace mémoire alloué pour créer la matrice M
+ **/
+
+void matrice_free(matrice* M);
+
+/** matrice_null(v) remplit toutes les cases de M par des zéros
+ **/
+
+void matrice_null(matrice* M);
+
+/** matrice_set(M, i, j, x) remplace la case à la ligne i et colonne j de M par x
+ **/
+
+void matrice_set(matrice* M, int i, int j, int x);
+
+/** matrice_print(M) affiche à l'ecrant
+ **/
+
+void matrice_print(matrice* M);
+
+/** matrice_file(fp) lit une matrice stockée dans n fichier
+  un exemple de fichier se trrouve sur la platforme
+  **/
+
+matrice* matrice_file(FILE *fp);
+
+#endif

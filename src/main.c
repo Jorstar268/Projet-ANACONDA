@@ -1,0 +1,22 @@
+                                                                          
+#include <stdio.h>                                                                                                
+#include <stdlib.h>                                                                                               
+#include "carte.h"                                                                                              
+#include <stddef.h>                                                                                                                                                                                                               
+                                                                                                                  
+int main() {
+  //  carte* c = carte_create(7, 5);
+                                                                                                                  
+  FILE* fp = fopen("carte.txt", "r");                                                                                                
+  if ( (fp = fopen("carte.txt", "r"))== NULL){                                                                     
+    printf("Erreur d'ouverture \n");                                                                             
+    return 1;                                                                                                     
+  }                                                                                                                       
+  carte*c = carte_file(fp);
+  carte_print(c);
+  carte_free(c);                                                                                            
+  return 0 ;                                                                                                      
+}                                                                                                                 
+                                                                                                                  
+                                                                                                             
+      

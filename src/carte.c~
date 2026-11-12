@@ -1,0 +1,51 @@
+#include "carte.h"
+
+carte* carte_create(int n, int m){
+  int i;
+  carte* c = malloc(sizeof(carte));
+  c->n = n;
+  c->m = m;
+  c->elt = (char **) malloc(n * sizeof(char *));
+  for (i = 0; i < n; i++){
+    c->elt[i] = (char *) malloc(sizeof(char));
+  }
+  return c;
+}
+
+void carte_free(carte* c) {
+    int i;
+    for (i = 0; i < c->n; i++){
+	free(c->elt[i]);
+    }
+    free(c->elt);
+    free(c);
+}
+
+void carte_print(carte* c){
+
+    int i, j;
+    printf("\n");
+    for (i = 0; i < c->n; i++){
+        for (j = 0; j < c->m; j++){
+                printf("%d", c->elt[i][j]);
+        }
+	printf("\n");
+    }
+}
+
+
+carte* carte_file(FILE *fp){
+    if (fp == NULL) {
+        return NULL;
+    }
+    int ligne, col, i, j;
+    fscanf(fp, "%d", &ligne);
+    fscanf(fp, "%d", &col);
+    carte* c = carte_create(ligne, col);
+    for (i = 0; i < c->n; i++) {
+	for (j = 0; j < c->m; j++) {
+		fscanf(fp, "%c", &c->elt[i][j]);
+	}
+    }
+    return c;
+}

@@ -1,0 +1,40 @@
+#ifndef carte_H
+#define carte_H
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/** La structure carte represente l'aire de jeu du snake sous la forme d'une grille 
+    n represente le nombre de ligne donc la hauteur de la grille
+    m represente le nombre de colonne donc la largeur de la grille
+    elt est un tableau bidimensionel 
+ **/
+
+typedef struct carte_{
+    int n;
+    int m;
+    char **elt;
+}carte;
+
+/** create_carte(n, m) retourne une carte ayant n lignes et m colonnes
+ **/
+
+carte* carte_create(int, int);
+
+/** carte_free(v) libère tout l'espace mémoire alloué pour créer la carte c
+ **/
+
+void carte_free(carte* c);
+
+/** carte_print(c) affiche la carte l'ecrant
+ **/
+
+void carte_print(carte* c);
+
+/** carte_file(fp) lit une carte stockée dans n fichier
+  **/
+
+carte* carte_file(FILE *fp);
+
+
+#endif
