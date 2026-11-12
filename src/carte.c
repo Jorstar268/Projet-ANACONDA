@@ -54,7 +54,6 @@ carte* carte_file(FILE *fp){
 	  if (ch == '\n') {
 	    ch = fgetc(fp); 
           }
-	  if (ch == EOF) break;
           c->elt[i][j] = (char)ch;
 	}
     }
